@@ -1,0 +1,44 @@
+<nav class="nav-extended">
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab">
+                <a class="active" {{action 'cerrarSesion'}} >
+                    Cerrar Sesión
+                </a>
+            </li>
+            <li class="tab">
+                {{#link-to "status-usuario" class="active"}}
+                    Status Usuario
+                {{/link-to}}    
+            </li>
+            <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="collection">
+    {{#link-to "nueva-solicitud" class="collection-item"}}<span class="badge">Solicitar espacio</span>
+        Nueva solicitud
+    {{/link-to}}    
+    <a href="#!" class="collection-item"><span class="badge">Reportar alerta</span>
+        Nueva alerta
+    </a>
+     <a href="#!" class="collection-item"><span class="badge">Responder</span>
+        Responder Encuesta
+    </a>
+</div>
+<br>
+<div class="collection">
+    {{#link-to "alertas" class="collection-item"}}
+        <span class="new badge light-blue darken-2">3</span>
+        Alertas
+    {{/link-to}}
+    {{#link-to "solicitudes" class="collection-item"}}
+        <span class="new badge light-blue darken-2">2</span>
+        Solicitudes
+    {{/link-to}}
+     {{#link-to "encuestas" class="collection-item"}}
+        <span class="new badge light-blue darken-2">1</span>
+        Encuestas
+    {{/link-to}}
+</div>
