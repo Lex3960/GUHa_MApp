@@ -5,6 +5,6 @@ export default DS.Model.extend({
     concepto: DS.attr('string'),
     monto: DS.attr('number'),
 
-    unidadHab: DS.belongsTo('unidad-hab'),
-    colono: DS.belongsTo('colono')
+    unidadHab: DS.belongsTo('housing-unit'),
+    colono: DS.belongsTo('settler')
 });

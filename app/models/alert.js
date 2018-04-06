@@ -5,8 +5,7 @@ export default DS.Model.extend({
     tipo: DS.attr('string'),
     descripcion: DS.attr('string'),
     fecha: DS.attr('string'),
-    aprobado: DS.attr('boolean'),
 
-    unidadHab: DS.belongsTo('unidad-hab'),
-    colono: DS.belongsTo('colono')
+    unidadHab: DS.belongsTo('housing-unit'),
+    colono: DS.belongsTo('settler')
 });

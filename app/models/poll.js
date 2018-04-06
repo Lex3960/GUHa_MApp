@@ -5,8 +5,8 @@ export default DS.Model.extend({
     descripcion: DS.attr('string'),
     fechaCierre: DS.attr('string'),
 
-    unidadHab: DS.belongsTo('unidad-hab'),
-    administrador: DS.belongsTo('admin'),
+    unidadHab: DS.belongsTo('housing-unit'),
+    administrador: DS.belongsTo('administrator'),
 
-    preguntas: DS.hasMany('pregunta')
+    preguntas: DS.hasMany('question')
 });

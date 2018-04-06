@@ -2,13 +2,13 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import { run } from '@ember/runloop';
 
-module('Unit | Model | respuesta', function(hooks) {
+module('Unit | Model | payment', function(hooks) {
   setupTest(hooks);
 
   // Replace this with your real tests.
   test('it exists', function(assert) {
     let store = this.owner.lookup('service:store');
-    let model = run(() => store.createRecord('respuesta', {}));
+    let model = run(() => store.createRecord('payment', {}));
     assert.ok(model);
   });
 });
