@@ -6,6 +6,11 @@ module.exports = function(environment) {
     environment,
     rootURL: '',
     locationType: 'hash',
+
+    torii: {
+      sessionServiceName: 'session'
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -29,6 +34,15 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.firebase = {
+        apiKey: "AIzaSyCImjD67U5oAmEI_aqeTRjVOuNzGr50ZxI",
+        authDomain: "guha-dev.firebaseapp.com",
+        databaseURL: "https://guha-dev.firebaseio.com",
+        projectId: "guha-dev",
+        storageBucket: "guha-dev.appspot.com",
+        messagingSenderId: "637932129887"
+    }
+    
   }
 
   if (environment === 'test') {
