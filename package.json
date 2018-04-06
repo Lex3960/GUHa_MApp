@@ -17,6 +17,7 @@
     "test": "ember test"
   },
   "dependencies": {
+    "bower": "^1.8.4",
     "ember-cli-windows": "^2.2.0"
   },
   "devDependencies": {

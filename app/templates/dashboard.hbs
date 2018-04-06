@@ -11,7 +11,6 @@
                     Status Usuario
                 {{/link-to}}    
             </li>
-            <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
         </ul>
     </div>
 </nav>
@@ -20,12 +19,12 @@
     {{#link-to "nueva-solicitud" class="collection-item"}}<span class="badge">Solicitar espacio</span>
         Nueva solicitud
     {{/link-to}}    
-    <a href="#!" class="collection-item"><span class="badge">Reportar alerta</span>
+    {{#link-to "nueva-alerta" class="collection-item"}}<span class="badge">Reportar alerta</span>
         Nueva alerta
-    </a>
-     <a href="#!" class="collection-item"><span class="badge">Responder</span>
+    {{/link-to}}    
+    {{#link-to "responder-encuesta" class="collection-item"}}<span class="badge">Encuesta de Satisfacción</span>
         Responder Encuesta
-    </a>
+    {{/link-to}}    
 </div>
 <br>
 <div class="collection">
