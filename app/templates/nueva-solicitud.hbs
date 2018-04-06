@@ -5,8 +5,8 @@
             <div class="col s12">
             Título:
                 <div class="input-field inline">
-                    <input id="email" type="email" class="validate">
-                    <label for="email" data-error="wrong" data-success="right">Nueva Solicitud</label>
+                    {{input id="titulo" type="text" class="validate" value=model.titulo }}
+                    <label for="titulo" data-error="wrong" data-success="right">Nueva Solicitud</label>
                 </div>
             </div>
         </div>
@@ -25,15 +25,15 @@
 
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                {{textarea id="textarea1" class="materialize-textarea" value=model.descripcion}}
                 <label for="textarea1">Descripcion</label>
             </div>
         </div>
 
         <div class="row">
-            {{#link-to "solicitudes" class="waves-effect waves-light btn light-blue darken-2"}}
+            <a class="waves-effect waves-light btn light-blue darken-2" {{action 'saveSolicitud' model}}>
                 <i class="material-icons right">cloud</i>Publicar
-            {{/link-to}}
+            </a>
             {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
                 <i class="material-icons right">cloud</i>
                 Inicio

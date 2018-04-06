@@ -31,8 +31,10 @@ export default Controller.extend({
                     window.Materialize.toast('Bienvenido', 3000);
                     this.transitionToRoute('dashboard');
                 });  
-            }).catch((error)=> {
+            }).catch(()=> {
+            // }).catch((error)=> {
                 //console.log(error);
+                window.Materialize.toast('Error al Iniciar Sesión', 3000);
             });
         }
     }

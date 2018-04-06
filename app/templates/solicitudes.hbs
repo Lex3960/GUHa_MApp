@@ -1,8 +1,13 @@
 {{!-- {{outlet}} --}}
 
 <div class="collection">
-    <a href="#!" class="collection-item"><span class="badge">1</span>Uso de Cancha de Basketball</a>
-    <a href="#!" class="collection-item"><span class="badge">2</span>Calle Simon Bolivar Cerrada </a>
+    {{#each mySolicitudes as |solicitud|}}
+        {{#if solicitud.titulo}}
+            <a  class="collection-item"><span class="badge">1</span>{{solicitud.titulo}}</a>
+        {{/if}}
+        {{else}}
+          <h4> Aún no tienes solicitudes.</h4>
+    {{/each}}
 </div>
 
 {{#link-to "nueva-solicitud" class="waves-effect waves-light btn light-blue darken-2"}}
