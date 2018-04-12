@@ -15,37 +15,44 @@
     </div>
 </nav>
 
-<div class="collection">
-    {{#link-to "nueva-solicitud" class="collection-item"}}<span class="badge">Solicitar espacio</span>
-        Nueva solicitud
-    {{/link-to}}    
-    {{#link-to "nueva-alerta" class="collection-item"}}<span class="badge">Reportar alerta</span>
-        Nueva alerta
-    {{/link-to}}    
-    {{#link-to "responder-encuesta" class="collection-item"}}<span class="badge">Encuesta de Satisfacción</span>
-        Responder Encuesta
-    {{/link-to}}    
-</div>
-
 {{#m-wrapper query='.parallax' method='parallax'}}
-    <div class="parallax-container" style="height:280px">
+    <div class="parallax-container" style="height:200px">
         <div class="parallax">
             <img src="http://s03.s3c.es/imag/_v0/635x300/6/9/0/unidad-habitacional-635.jpg">
         </div>
     </div>
 {{/m-wrapper}}
 
-<div class="collection">
-    {{#link-to "alertas" class="collection-item"}}
-        <span class="new badge light-blue darken-2">3</span>
-        Alertas
-    {{/link-to}}
-    {{#link-to "solicitudes" class="collection-item"}}
-        <span class="new badge light-blue darken-2">2</span>
-        Solicitudes
-    {{/link-to}}
-     {{#link-to "encuestas" class="collection-item"}}
-        <span class="new badge light-blue darken-2">1</span>
-        Encuestas
-    {{/link-to}}
-</div>
+
+<ul class="collection">
+    <li class="collection-item">
+        <div>
+            {{#link-to "alertas"}}
+                Alertas
+            {{/link-to}}
+            {{#link-to "nueva-alerta" class="secondary-content"}}
+                <i class="material-icons">add_alert</i>
+            {{/link-to}}
+        </div>
+    </li>
+     <li class="collection-item">
+        <div>
+            {{#link-to "encuestas"}}
+                Encuestas
+            {{/link-to}}
+            {{#link-to "responder-encuesta" class="secondary-content"}}
+                <i class="material-icons">question_answer</i>
+            {{/link-to}}
+        </div>
+    </li>
+     <li class="collection-item">
+        <div>
+            {{#link-to "solicitudes"}}
+                Solicitudes
+            {{/link-to}}
+            {{#link-to "nueva-solicitud" class="secondary-content"}}
+                <i class="material-icons">add_box</i>
+            {{/link-to}}
+        </div>
+    </li>
+</ul>
