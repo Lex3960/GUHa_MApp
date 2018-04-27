@@ -9,7 +9,7 @@
             <li class="tab">
                 {{#link-to "status-usuario" class="active"}}
                     Status Usuario
-                {{/link-to}}    
+                {{/link-to}}
             </li>
         </ul>
     </div>
@@ -18,7 +18,7 @@
 {{#m-wrapper query='.parallax' method='parallax'}}
     <div class="parallax-container" style="height:200px">
         <div class="parallax">
-            <img src="http://s03.s3c.es/imag/_v0/635x300/6/9/0/unidad-habitacional-635.jpg">
+            <img src="{{model.unidadHab.imageUrl}}">
         </div>
     </div>
 {{/m-wrapper}}
