@@ -1,0 +1,75 @@
+{{outlet}}
+<hr>
+
+<div class="row">
+	{{m-wrapper}}
+    <form class="col s12">
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field inline">
+                    {{input disabled=true id="titulo" type="text" class="validate" value=model.titulo }}
+                    <label for="titulo" data-error="wrong" data-success="right">Titulo</label>
+                </div>
+            </div>
+        </div>
+
+        {{#if model.colono}}
+	        <div class="row">
+	            <div class="col s12">
+	            	<label for="tituloo" data-error="wrong" data-success="right">Colono</label>
+	                <div class="input-field">
+	                    {{input disabled=true id="tituloo" type="text" class="validate" value=model.colono.nombre}}
+	                </div>
+	            </div>
+	        </div>
+        {{/if}}
+
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field inline">
+                    {{input disabled=true id="espacio" type="text" class="validate" value=model.espacio }}
+                    <label for="espacio" data-error="wrong" data-success="right">Espacio requerido</label>
+                </div>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col s12">
+                <div class="input-field inline">
+                    {{input disabled=true id="fecha" type="text" class="validate" value=(moment-format model.fecha 'DD/MM/YYYY')}}
+                    <label for="fecha" data-error="wrong" data-success="right">Fecha de solicitud</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field inline">
+                    {{input disabled=true id="tiempo" type="text" class="validate" value=model.tiempo }}
+                    <label for="tiempo" data-error="wrong" data-success="right">Horario requerido</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                {{textarea disabled=true id="textarea1" class="materialize-textarea" value=model.descripcion}}
+                <label for="textarea1">Motivo</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            {{#link-to "solicitudes" class="waves-effect waves-light btn light-blue darken-2"}}
+                <i class="material-icons right">cloud</i>
+                Solicitudes
+            {{/link-to}}
+            {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
+                <i class="material-icons right">cloud</i>
+                Inicio
+            {{/link-to}}
+        </div>
+
+    </form>
+  </div>

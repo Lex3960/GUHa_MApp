@@ -2,11 +2,18 @@
 
 <div class="collection">
     {{#each mySolicitudes as |solicitud|}}
-        {{#if solicitud.titulo}}
-            <a  class="collection-item"><span class="badge">1</span>{{solicitud.titulo}}</a>
+        {{#if solicitud.aprobado}}
+            {{#link-to "ver-solicitud" solicitud class="collection-item"}}
+                <span class="badge">
+                    {{moment-format solicitud.fecha 'DD/MM/YYYY'}}
+                </span>
+                {{solicitud.titulo}}
+            {{/link-to}}
+        {{else}}
+            <h6> Sin solicitudes registradas.</h6>
         {{/if}}
         {{else}}
-          <h4> Aún no tienes solicitudes.</h4>
+          <h6> Sin solicitudes registradas.</h6>
     {{/each}}
 </div>
 

@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('nueva-solicitud');
   this.route('responder-encuesta');
   this.route('ver-alerta', {path: "/alerta/:id"});
+  this.route('ver-solicitud', {path: "/solicitud/:id"});
 });
 
 export default Router;
