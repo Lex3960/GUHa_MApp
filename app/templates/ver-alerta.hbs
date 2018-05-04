@@ -1,11 +1,12 @@
 {{outlet}}
 <div class="row">
     <hr>
+    {{m-wrapper}}
     <form class="col s12">
         <div class="row">
             <div class="col s12">
                 <div class="input-field inline">
-                  {{input id="titulo" type="text" class="validate" value=model.titulo }}
+                  {{input disabled=true id="titulo" type="text" class="validate" value=model.titulo }}
                   <label for="titulo" data-error="wrong" data-success="right">Motivo</label>
                 </div>
             </div>
@@ -25,17 +26,27 @@
 
         <div class="row">
             <div class="input-field col s12">
-                {{textarea id="textarea1" class="materialize-textarea" value=model.descripcion}}
+                {{textarea disabled=true id="textarea1" class="materialize-textarea" value=model.descripcion}}
                 <label for="textarea1">Descripcion</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field inline">
+                  {{input disabled=true id="fecha" type="text" class="validate" value=model.fecha }}
+                  <label for="titulo" data-error="wrong" data-success="right">Fecha</label>
+                </div>
             </div>
         </div>
 
         <hr>
 
         <div class="row">
-            <a class="waves-effect waves-light btn light-blue darken-2" {{action 'saveAlerta' model}}>
-              <i class="material-icons right">cloud</i>Publicar
-            </a>
+            {{#link-to "alertas" class="waves-effect waves-light btn light-blue darken-2"}}
+              <i class="material-icons right">cloud</i>
+              Alertas
+            {{/link-to}}
             {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
                 <i class="material-icons right">cloud</i>
                 Inicio

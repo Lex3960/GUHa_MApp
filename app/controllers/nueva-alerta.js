@@ -2,6 +2,7 @@ import Ember from 'ember';
 import {computed} from '@ember/object';
 import {inject as service} from '@ember/service';
 import DS from 'ember-data';
+import moment from 'moment';
 
 export default Ember.Controller.extend({
   currentUser: service(),
@@ -23,6 +24,7 @@ export default Ember.Controller.extend({
           this.get('currentUser.account').then((account)=>{
             this.get('store').findRecord('settler', account.get('id')).then((colono)=>{
               alerta.set('colono', colono)
+              alerta.set('fecha', moment().format())
               alerta.save().then(()=>{
                 this.get('currentUnit').then((currentUnit)=>{
                   currentUnit.get('alertas').then((alertList)=>{

@@ -1,10 +1,10 @@
 {{!-- {{outlet}} --}}
 <div class="collection">
     {{#each model as |alerta|}}
-        <a class="collection-item">
-            <span class="badge"> 1 </span>
+        {{#link-to "ver-alerta" alerta.id class="collection-item"}}
+            <span class="badge"> {{moment-format alerta.fecha 'DD/MM/YYYY HH:mm' }} </span>
             {{alerta.titulo}}
-        </a>
+        {{/link-to}}
 
     {{else}}
         <a class="collection-item">
