@@ -6,5 +6,8 @@ export default User.extend({
 
     pagos: DS.hasMany('payment'),
     solicitudes: DS.hasMany('request'),
-    alertas: DS.hasMany('alert')
+    alertas: DS.hasMany('alert'),
+    encuestas: DS.hasMany('survey'),
+
+    status: DS.attr('string')
 });

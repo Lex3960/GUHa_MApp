@@ -23,9 +23,11 @@ export default Ember.Route.extend({
    model() {
      return this.get('currentUser.account').then((account)=>{
        return this.get('store').findRecord('settler', account.get('id')).then((theSettler)=>{
-         return theSettler.get('alertas').then((alertList)=>{
+         return theSettler.get('unidadHab').then((unit)=>{
            // console.log(settlerList)
-           return alertList
+            return unit.get('alertas').then((alertList)=>{
+              return alertList
+            })
          })
        })
      })

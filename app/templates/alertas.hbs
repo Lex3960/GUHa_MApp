@@ -1,13 +1,15 @@
 {{!-- {{outlet}} --}}
-
-{{log model}}
-
 <div class="collection">
-  {{#each model as |alerta|}}
-    <a href="#!" class="collection-item">
-        <span class="badge"> 1 </span>
-        {{alerta.titulo}}
-    </a>
+    {{#each model as |alerta|}}
+        <a class="collection-item">
+            <span class="badge"> 1 </span>
+            {{alerta.titulo}}
+        </a>
+
+    {{else}}
+        <a class="collection-item">
+            Sin alertas registradas.
+        </a>
     {{/each}}
     <!-- <a href="#!" class="collection-item">
         <span class="badge"> 2 </span>

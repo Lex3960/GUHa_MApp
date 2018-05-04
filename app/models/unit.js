@@ -37,3 +37,4 @@ export default DS.Model.extend({
 
     encuestas: DS.hasMany('poll'),
 });
+
