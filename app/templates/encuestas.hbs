@@ -1,12 +1,48 @@
 {{!-- {{outlet}} --}}
-
-<div class="collection">
-    {{#link-to "responder-encuesta" class="collection-item"}}
-        <span class="badge">1</span>
-        Encuesta de Satisfacción
-    {{/link-to}}
+<hr>
+<div class="col s10 offset-1">
+    <h6>Encuestas Pendientes</h6>
 </div>
-
+<div class="collection">
+	<span class="badge">
+		Fecha Límite
+	</span>
+	Título
+	<hr>
+	{{#each model as |encuesta|}}
+		{{#unless encuesta.respondida}}
+		    {{#link-to "responder-encuesta" encuesta class="collection-item"}}
+		        <span class="badge">
+		        	{{moment-format encuesta.encuestaBase.fechaCierre 'DD/MMM/YYYY HH:mm' }}         	
+		    	</span>
+		        {{encuesta.encuestaBase.titulo}}
+		    {{/link-to}}
+	    {{/unless}}
+    {{/each}}
+</div>
+<hr>
+<div class="col s10 offset-1">
+    <h6>Encuestas Respondidas</h6>
+    <div class="collection">
+		<span class="badge">
+		    Fecha de Respuesta
+		</span>
+		Título
+	</div>
+</div>
+<div class="collection">
+	{{#each model as |encuesta|}}
+		{{#if encuesta.respondida}}
+		    {{#link-to "ver-encuesta" encuesta class="collection-item"}}
+		        <span class="badge">
+		        	{{moment-format encuesta.fechaRespuesta 'DD/MMM/YYYY HH:mm' }}         	
+		    	</span>
+		        {{encuesta.encuestaBase.titulo}}
+		    {{/link-to}}
+	    {{/if}}
+    {{/each}}
+</div>
+<hr>
 {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
     <i class="material-icons right">cloud</i>
     Inicio

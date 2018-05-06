@@ -4,12 +4,13 @@ import { isBlank } from '@ember/utils';
 import moment from 'moment';
 
 export default DS.Model.extend({
-  preguntas: DS.hasMany('question'),
-  colono: DS.belongsTo('settler'),
-  fechaCierre: DS.attr('string'),
+	encuestaBase: DS.belongsTo('poll'), 
+  	preguntas: DS.hasMany('question'),
+  	colono: DS.belongsTo('settler'),
+  	fechaRespuesta: DS.attr('string'),
 
-  respondida: DS.attr('boolean', {
-    defaultValue: false
-  })
+  	respondida: DS.attr('boolean', {
+    	defaultValue: false
+  	})
 
 });

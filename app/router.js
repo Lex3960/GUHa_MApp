@@ -10,15 +10,16 @@ Router.map(function() {
   this.route('login');
   this.route('signup');
   this.route('dashboard');
-  this.route('alertas', function() {});
   this.route('status-usuario');
+  this.route('alertas', function() {});
   this.route('solicitudes', function() {});
   this.route('encuestas', function() {});
   this.route('nueva-alerta');
   this.route('nueva-solicitud');
-  this.route('responder-encuesta');
+  this.route('responder-encuesta', {path: "/encuesta/:id"});
   this.route('ver-alerta', {path: "/alerta/:id"});
   this.route('ver-solicitud', {path: "/solicitud/:id"});
+  this.route('ver-encuesta', {path: "/encuesta/:id"});
 });
 
 export default Router;

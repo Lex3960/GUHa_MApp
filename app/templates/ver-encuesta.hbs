@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col s10 offset-1">
+        <h5>{{model.encuestaBase.titulo}}</h5>
+        <h5>{{model.encuestaBase.descripcion}}</h5>
+    </div>
+    <form class="col s12">
+        <hr>
+        {{#each model.preguntas as |pregunta|}}
+            <div class="row">
+               <label>{{pregunta.contenido}}</label>
+				{{#each pregunta.respuestas as |respuestaChoice|}}
+				    {{input disabled=true value=respuestaChoice.contenido}}
+				{{/each}}
+            </div>
+        {{/each}}
+
+        <hr>
+        <div class="row">
+             {{#link-to "encuestas" class="waves-effect waves-light btn light-blue darken-2"}}
+                <i class="material-icons right">cloud</i>
+                Encuestas
+            {{/link-to}}   
+            {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
+                <i class="material-icons right">cloud</i>
+                Inicio
+            {{/link-to}}    
+        </div>
+
+    </form>
+ </div>

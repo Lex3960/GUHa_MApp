@@ -1,0 +1,9 @@
+<label>{{pregunta.contenido}}</label>
+<select class="browser-default" onchange={{action 'changeRespuesta' value="target.value"}}>
+    <option value="" disabled selected> Seleccionar Respuesta</option>
+    {{#each pregunta.respuestas as |respuestaChoice|}}
+        <option value={{respuestaChoice.id}}>
+            {{respuestaChoice.contenido}}
+        </option>
+    {{/each}}
+</select>

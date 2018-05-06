@@ -1,7 +1,7 @@
 {{!-- {{outlet}} --}}
 
 <div class="collection">
-    {{#each mySolicitudes as |solicitud|}}
+    {{#each model as |solicitud|}}
         {{#if solicitud.aprobado}}
             {{#link-to "ver-solicitud" solicitud class="collection-item"}}
                 <span class="badge">

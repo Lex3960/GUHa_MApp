@@ -15,6 +15,7 @@
     </div>
 </nav>
 
+<hr>
 {{#m-wrapper query='.parallax' method='parallax'}}
     <div class="parallax-container" style="height:200px">
         <div class="parallax">
@@ -22,7 +23,7 @@
         </div>
     </div>
 {{/m-wrapper}}
-
+<hr>
 
 <ul class="collection">
     <li class="collection-item">
@@ -35,14 +36,14 @@
             {{/link-to}}
         </div>
     </li>
-     <li class="collection-item">
+    <li class="collection-item">
         <div>
             {{#link-to "encuestas"}}
                 Encuestas
             {{/link-to}}
-            {{#link-to "responder-encuesta" class="secondary-content"}}
+           {{!--  {{#link-to "responder-encuesta" class="secondary-content"}}
                 <i class="material-icons">question_answer</i>
-            {{/link-to}}
+            {{/link-to}} --}}
         </div>
     </li>
      <li class="collection-item">
@@ -56,3 +57,4 @@
         </div>
     </li>
 </ul>
+<hr>

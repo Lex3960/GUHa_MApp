@@ -1,69 +1,22 @@
-{{outlet}}
+{{!-- {{outlet}} --}}
 <div class="row">
+    <div class="col s10 offset-1">
+        <h5>{{model.encuestaBase.titulo}}</h5>
+        <h6>{{model.encuestaBase.descripcion}}</h6>
+    </div>
     <form class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Nombre</label>
+        <hr>
+        {{#each model.encuestaBase.preguntas as |pregunta index|}}
+            <div class="row">
+               {{responder-pregunta pregunta=pregunta index=index changeRespuesta=(action 'changeRespuesta')}}
             </div>
-        </div>
+        {{/each}}
 
+        <hr>
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">Telefono</label>
-            </div>
-        </div>
-
-        <div class="row">
-            <label>Pregunta 1</label>
-            <select class="browser-default">
-                <option value="" disabled selected>Seleccionar</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
-        </div>
-
-        <div class="row">
-            <label>Pregunta 2</label>
-            <select class="browser-default">
-                <option value="" disabled selected>Seleccionar</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
-        </div>
-
-        <!--input type="text" class="datepicker"-->
-        <div class="row">
-            <form action="#">
-                <label>Color de Casa</label>
-                <p>
-                <input name="group1" type="radio" id="test1" />
-                <label for="test1">Red</label>
-                </p>
-                <p>
-                <input name="group1" type="radio" id="test2" />
-                <label for="test2">Yellow</label>
-                </p>
-                <p>
-                <input class="with-gap" name="group1" type="radio" id="test3"  />
-                <label for="test3">Green</label>
-                </p>
-                <p>
-                <input name="group1" type="radio" id="test4" disabled="disabled" />
-                <label for="test4">Brown</label>
-                </p>
-            </form>
-        </div>
-
-        <div class="row">
-            {{#link-to "encuestas" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>Responder encuesta
-            {{/link-to}}
+            <a class="waves-effect waves-light btn light-blue darken-2" {{action 'responderEncuesta' model}}>
+                <i class="material-icons right">cloud</i>Responder
+            </a>
             {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
                 <i class="material-icons right">cloud</i>
                 Inicio
