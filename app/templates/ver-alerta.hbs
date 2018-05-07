@@ -1,5 +1,8 @@
 {{outlet}}
 <div class="row">
+     <div class="col s12">
+        <h5>Detalles de Alerta</h5>
+    </div>
     <hr>
     {{m-wrapper}}
     <form class="col s12">
@@ -38,19 +41,24 @@
                 </div>
             </div>
         </div>
-
-        <hr>
-
-        <div class="row">
-            {{#link-to "alertas" class="waves-effect waves-light btn light-blue darken-2"}}
-              <i class="material-icons right">cloud</i>
-              Alertas
-            {{/link-to}}
-            {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>
-                Inicio
-            {{/link-to}}
-        </div>
-
     </form>
   </div>
+<hr>
+<nav>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab" >
+                {{#link-to "alertas" class="active"}}
+                 <i class="material-icons left">add_alert</i>
+                    Volver
+                {{/link-to}}
+            </li>
+            <li class="tab">
+                {{#link-to "dashboard" class="active"}}
+                  <i class="material-icons right">view_module</i>
+                    Inicio
+                {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</nav>

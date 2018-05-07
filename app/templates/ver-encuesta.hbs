@@ -1,30 +1,46 @@
 <div class="row">
     <div class="col s10 offset-1">
         <h5>{{model.encuestaBase.titulo}}</h5>
-        <h5>{{model.encuestaBase.descripcion}}</h5>
+        <h6>{{model.encuestaBase.descripcion}}</h6>
     </div>
+    {{m-wrapper}}
     <form class="col s12">
+        <div class="row">
+            <div class="input-field inline">
+              {{input disabled=true id="fecha" type="text" class="validate" value=(moment-format model.fechaRespuesta 'DD/MM/YYYY  HH:mm') }}
+                <label for="titulo" data-error="wrong" data-success="right">Fecha y hora de respuesta</label>
+            </div>
+        </div>
         <hr>
-        {{#each model.preguntas as |pregunta|}}
+        <h6>Preguntas</h6>
+        {{#each model.preguntas as |pregunta index|}}
             <div class="row">
-               <label>{{pregunta.contenido}}</label>
+               <label>{{add index 1}}.- {{pregunta.contenido}}</label>
 				{{#each pregunta.respuestas as |respuestaChoice|}}
 				    {{input disabled=true value=respuestaChoice.contenido}}
 				{{/each}}
             </div>
         {{/each}}
 
-        <hr>
-        <div class="row">
-             {{#link-to "encuestas" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>
-                Encuestas
-            {{/link-to}}   
-            {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>
-                Inicio
-            {{/link-to}}    
-        </div>
-
     </form>
  </div>
+
+   <hr>
+  <nav>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab">
+                {{#link-to "encuestas" class="active"}}
+                  <i class="material-icons left">question_answer</i>
+                    Volver
+               {{/link-to}}
+            </li>
+            <li class="tab">
+                {{#link-to "dashboard" class="active"}}
+                  <i class="material-icons right">view_module</i>
+                    Inicio
+               {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</nav>

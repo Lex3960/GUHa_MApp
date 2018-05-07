@@ -1,27 +1,45 @@
 {{!-- {{outlet}} --}}
+<nav>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab" >
+                {{#link-to "dashboard" class="active"}}
+                 <i class="material-icons left">view_module</i>
+                    Inicio
+                {{/link-to}}
+            </li>
+            <li class="tab">
+                 {{#link-to "nueva-solicitud" class="active"}}
+                  <i class="material-icons right">add</i>
+                    Nueva solicitud
+                {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</nav>
 
-<div class="collection">
-    {{#each model as |solicitud|}}
-        {{#if solicitud.aprobado}}
-            {{#link-to "ver-solicitud" solicitud class="collection-item"}}
-                <span class="badge">
-                    {{moment-format solicitud.fecha 'DD/MM/YYYY'}}
-                </span>
-                {{solicitud.titulo}}
-            {{/link-to}}
-        {{else}}
-            <h6> Sin solicitudes registradas o aprobadas.</h6>
-        {{/if}}
-        {{else}}
-          <h6> Sin solicitudes registradas.</h6>
-    {{/each}}
-</div>
+{{#m-wrapper query='.collapsible' method='collapsible' }}
+    <ul class="collapsible" data-collapsible="accordion">
+        {{#each model as |solicitud|}}
+            {{#unless solicitud.isNew}}
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">assignment_turned_in</i>
+                            {{solicitud.titulo}}
+                        <span class="new badge blue" data-badge-caption="Ver">
+                            {{#link-to "ver-solicitud" solicitud.id}}
+                            .
+                           {{/link-to}}
+                        </span>
+                    </div>
+                    <div class="collapsible-body">
+                            <p>Colono: {{solicitud.colono.nombre}} {{solicitud.colono.apellidoPaterno}} </p>
+                            <p>Motivo: {{solicitud.descripcion}}</p>
+                            <p>Fecha del evento: {{moment-format solicitud.fecha 'DD/MMM/YYYY' }} </p>
 
-{{#link-to "nueva-solicitud" class="waves-effect waves-light btn light-blue darken-2"}}
-    <i class="material-icons right">cloud</i>
-    Nueva Solicitud
-{{/link-to}}
-{{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-    <i class="material-icons right">cloud</i>
-    Inicio
-{{/link-to}}
+                    </div>
+                </li>
+            {{/unless}}
+        {{/each}}
+    </ul>
+{{/m-wrapper}}

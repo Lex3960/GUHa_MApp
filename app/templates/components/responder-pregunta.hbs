@@ -1,4 +1,4 @@
-<label>{{pregunta.contenido}}</label>
+<label>{{add index 1}}.- {{pregunta.contenido}}</label>
 <select class="browser-default" onchange={{action 'changeRespuesta' value="target.value"}}>
     <option value="" disabled selected> Seleccionar Respuesta</option>
     {{#each pregunta.respuestas as |respuestaChoice|}}

@@ -57,19 +57,25 @@
                 <label for="textarea1">Motivo</label>
             </div>
         </div>
-
-        <hr>
-
-        <div class="row">
-            {{#link-to "solicitudes" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>
-                Solicitudes
-            {{/link-to}}
-            {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>
-                Inicio
-            {{/link-to}}
-        </div>
-
     </form>
   </div>
+
+<hr>
+<nav>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab" >
+                {{#link-to "solicitudes" class="active"}}
+                 <i class="material-icons left">add</i>
+                    Volver
+                {{/link-to}}
+            </li>
+            <li class="tab">
+                {{#link-to "dashboard" class="active"}}
+                  <i class="material-icons right">view_module</i>
+                    Inicio
+                {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -4,24 +4,37 @@
         <h5>{{model.encuestaBase.titulo}}</h5>
         <h6>{{model.encuestaBase.descripcion}}</h6>
     </div>
+    {{m-wrapper}}
     <form class="col s12">
-        <hr>
+        <div class="row">
+            <div class="input-field inline">
+              {{input disabled=true id="fecha" type="text" class="validate" value=(moment-format model.encuestaBase.fechaCierre 'DD/MM/YYYY  HH:mm') }}
+                <label for="titulo" data-error="wrong" data-success="right">Fecha límite de respuesta</label>
+            </div>
+        </div>        <hr>
         {{#each model.encuestaBase.preguntas as |pregunta index|}}
             <div class="row">
                {{responder-pregunta pregunta=pregunta index=index changeRespuesta=(action 'changeRespuesta')}}
             </div>
         {{/each}}
-
-        <hr>
-        <div class="row">
-            <a class="waves-effect waves-light btn light-blue darken-2" {{action 'responderEncuesta' model}}>
-                <i class="material-icons right">cloud</i>Responder
-            </a>
-            {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>
-                Inicio
-            {{/link-to}}    
-        </div>
-
     </form>
   </div>
+  <hr>
+  <nav>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab">
+                {{#link-to "encuestas" class="active"}}
+                  <i class="material-icons left">cancel</i>
+                    Cancelar
+               {{/link-to}}
+            </li>
+            <li class="tab" >
+                <a class="active" {{action 'responderEncuesta' model}}>
+                 <i class="material-icons right">question_answer</i>
+                    Responder
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,31 +1,44 @@
 {{!-- {{outlet}} --}}
-<div class="collection">
-    {{#each model as |alerta|}}
-        {{#link-to "ver-alerta" alerta.id class="collection-item"}}
-            <span class="badge"> {{moment-format alerta.fecha 'DD/MM/YYYY HH:mm' }} </span>
-            {{alerta.titulo}}
-        {{/link-to}}
+<nav>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab" >
+                {{#link-to "dashboard" class="active"}}
+                 <i class="material-icons left">view_module</i>
+                    Inicio
+                {{/link-to}}
+            </li>
+            <li class="tab">
+                 {{#link-to "nueva-alerta" class="active"}}
+                  <i class="material-icons right">add_alert</i>
+                    Nueva alerta
+                {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    {{else}}
-        <a class="collection-item">
-            Sin alertas registradas.
-        </a>
-    {{/each}}
-    <!-- <a href="#!" class="collection-item">
-        <span class="badge"> 2 </span>
-        Corte de Agua
-    </a>
-    <a href="#!" class="collection-item">
-        <span class="badge">3</span>
-        Pago Mensual
-    </a> -->
-</div>
+{{#m-wrapper query='.collapsible' method='collapsible' }}
+    <ul class="collapsible" data-collapsible="accordion">
+        {{#each model as |alerta|}}
+            {{#unless alerta.isNew}}
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">warning</i>
+                            {{alerta.titulo}}
+                        <span class="new badge blue" data-badge-caption="Ver">
+                            {{#link-to "ver-alerta" alerta.id}}
+                            .
+                           {{/link-to}}
+                        </span>
+                    </div>
+                    <div class="collapsible-body">
+                            <p>Motivo: {{alerta.descripcion}}</p>
+                            <p>Fecha de Registro: {{moment-format alerta.fecha 'DD/MMM/YYYY HH:mm' }} </p>
+                    </div>
+                </li>
+            {{/unless}}
+        {{/each}}
+    </ul>
+{{/m-wrapper}}
 
-{{#link-to "nueva-alerta" class="waves-effect waves-light btn light-blue darken-2"}}
-    <i class="material-icons right">cloud</i>
-    Nueva Alerta
-{{/link-to}}
-{{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-    <i class="material-icons right">cloud</i>
-    Inicio
-{{/link-to}}

@@ -6,6 +6,7 @@ export default Controller.extend({
 
     actions: {
     cerrarSesion: function() {
+    	window.Materialize.toast('¡Hasta la próxima!', 2000);
         this.get('session').close();
         this.transitionToRoute('login');
       }

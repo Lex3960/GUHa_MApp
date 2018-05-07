@@ -1,5 +1,9 @@
 {{outlet}}
 <div class="row">
+    <div class="col s12">
+        <h5>Nueva Solicitud</h5>
+    </div>
+    <hr>
     <form class="col s12">
         <div class="row">
             <div class="col s12">
@@ -21,9 +25,8 @@
 
          <div class="row">
             <div class="col s12">
-                <span>Fecha de solicitud</span>
               {{#m-wrapper query=".datepicker" method="pickadate"}}
-                {{input type="text" class="datepicker" placeholder="Selecciona la fecha del evento." change=(action 'changeFecha')}}
+                {{input type="text" class="datepicker" placeholder="Fecha del evento." change=(action 'changeFecha')}}
               {{/m-wrapper}}
             </div>
         </div>
@@ -43,16 +46,24 @@
                 <label for="textarea1">Motivo</label>
             </div>
         </div>
-
-        <div class="row">
-            <a class="waves-effect waves-light btn light-blue darken-2" {{action 'saveSolicitud' model}}>
-                <i class="material-icons right">cloud</i>Enviar
-            </a>
-            {{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-                <i class="material-icons right">cloud</i>
-                Inicio
-            {{/link-to}}
-        </div>
-
     </form>
   </div>
+
+  <nav>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab" >
+                {{#link-to "solicitudes" class="active"}}
+                 <i class="material-icons left">cancel</i>
+                    Cancelar
+                {{/link-to}}
+            </li>
+            <li class="tab">
+                <a class="active" {{action 'saveSolicitud' model}}>
+                  <i class="material-icons right">add</i>
+                    Enviar
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

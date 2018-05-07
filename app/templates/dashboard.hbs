@@ -2,14 +2,16 @@
     <div class="nav-content">
         <ul class="tabs tabs-transparent">
             <li class="tab">
-                <a class="active" {{action 'cerrarSesion'}} >
-                    Cerrar Sesión
-                </a>
-            </li>
-            <li class="tab">
-                {{#link-to "status-usuario" class="active"}}
+                {{#link-to "status-usuario" model.id class="active"}}
+                    <i class="material-icons left">perm_identity</i>
                     Status Usuario
                 {{/link-to}}
+            </li>
+            <li class="tab">
+                <a class="active" {{action 'cerrarSesion'}}>
+                    <i class="material-icons right">close</i>
+                    Cerrar Sesión
+                </a>
             </li>
         </ul>
     </div>
@@ -24,37 +26,56 @@
     </div>
 {{/m-wrapper}}
 <hr>
-
-<ul class="collection">
-    <li class="collection-item">
-        <div>
-            {{#link-to "alertas"}}
-                Alertas
-            {{/link-to}}
-            {{#link-to "nueva-alerta" class="secondary-content"}}
-                <i class="material-icons">add_alert</i>
-            {{/link-to}}
-        </div>
-    </li>
-    <li class="collection-item">
-        <div>
-            {{#link-to "encuestas"}}
-                Encuestas
-            {{/link-to}}
-           {{!--  {{#link-to "responder-encuesta" class="secondary-content"}}
+{{#m-wrapper query='.collapsible' method='collapsible' }}
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">warning</i>
+                    {{#link-to "alertas"}}
+                        Alertas
+                    {{/link-to}}
+                <span class="new badge blue" data-badge-caption="Crear">
+                    {{#link-to "nueva-alerta"}}
+                        .
+                    {{/link-to}}
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <p>Notifica a los demás colonos de situaciones en tiempo real.</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
                 <i class="material-icons">question_answer</i>
-            {{/link-to}} --}}
-        </div>
-    </li>
-     <li class="collection-item">
-        <div>
-            {{#link-to "solicitudes"}}
-                Solicitudes
-            {{/link-to}}
-            {{#link-to "nueva-solicitud" class="secondary-content"}}
+                    {{#link-to "encuestas"}}
+                        Encuestas
+                    {{/link-to}}
+                <span class="new badge blue" data-badge-caption="Ir">
+                    {{#link-to "encuestas"}}
+                        .
+                    {{/link-to}}
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <p>Contribuye con tu administrador a la mejora y buen funcionamiento de tu unidad habitacional.</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
                 <i class="material-icons">add_box</i>
-            {{/link-to}}
-        </div>
-    </li>
-</ul>
-<hr>
+                    {{#link-to "solicitudes"}}
+                        Solicitudes
+                    {{/link-to}}
+                <span class="new badge blue" data-badge-caption="Crear">
+                    {{#link-to "nueva-solicitud"}}
+                        .
+                    {{/link-to}}
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <p>Solicita espacios de tu unidad habitacional para realizar eventos.</p>
+            </div>
+        </li>
+    </ul>
+{{/m-wrapper}}
+

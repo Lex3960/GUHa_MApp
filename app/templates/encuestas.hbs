@@ -1,49 +1,69 @@
 {{!-- {{outlet}} --}}
-<hr>
+<nav class="nav-extended">
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab">
+                {{#link-to "dashboard" class="active"}}
+                	<i class="material-icons left">view_module</i>
+                    Inicio
+                {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div class="col s10 offset-1">
-    <h6>Encuestas Pendientes</h6>
+    <h5>Encuestas Pendientes</h5>
 </div>
-<div class="collection">
-	<span class="badge">
-		Fecha Límite
-	</span>
-	Título
-	<hr>
-	{{#each model as |encuesta|}}
-		{{#unless encuesta.respondida}}
-		    {{#link-to "responder-encuesta" encuesta class="collection-item"}}
-		        <span class="badge">
-		        	{{moment-format encuesta.encuestaBase.fechaCierre 'DD/MMM/YYYY HH:mm' }}         	
-		    	</span>
-		        {{encuesta.encuestaBase.titulo}}
-		    {{/link-to}}
-	    {{/unless}}
-    {{/each}}
-</div>
-<hr>
+{{#m-wrapper query='.collapsible' method='collapsible' }}
+	<ul class="collapsible" data-collapsible="accordion">
+	  
+	  	{{#each model as |encuesta|}}
+			{{#unless encuesta.respondida}}
+				<li>
+	    			<div class="collapsible-header">
+	      				<i class="material-icons">assignment</i>
+	      				{{encuesta.encuestaBase.titulo}}
+		      				<span class="new badge blue" data-badge-caption="Ir">
+		      				{{#link-to "responder-encuesta" encuesta.id}}
+		      					.
+		      				{{/link-to}}
+		      				</span>
+	      				</div>
+	    			<div class="collapsible-body">
+	    				<p>Descripción: {{encuesta.encuestaBase.descripcion}}</p>
+	    				<p>Fecha Límite: {{moment-format encuesta.encuestaBase.fechaCierre 'DD/MMM/YYYY HH:mm' }}</p>
+	    				</div>
+	    			</li>
+	     	{{/unless}}
+	    {{/each}}
+	  
+	</ul>
+{{/m-wrapper}}
 <div class="col s10 offset-1">
-    <h6>Encuestas Respondidas</h6>
-    <div class="collection">
-		<span class="badge">
-		    Fecha de Respuesta
-		</span>
-		Título
-	</div>
+    <h5>Encuestas Respondidas</h5>
 </div>
-<div class="collection">
-	{{#each model as |encuesta|}}
-		{{#if encuesta.respondida}}
-		    {{#link-to "ver-encuesta" encuesta class="collection-item"}}
-		        <span class="badge">
-		        	{{moment-format encuesta.fechaRespuesta 'DD/MMM/YYYY HH:mm' }}         	
-		    	</span>
-		        {{encuesta.encuestaBase.titulo}}
-		    {{/link-to}}
-	    {{/if}}
-    {{/each}}
-</div>
-<hr>
-{{#link-to "dashboard" class="waves-effect waves-light btn light-blue darken-2"}}
-    <i class="material-icons right">cloud</i>
-    Inicio
-{{/link-to}}
+{{#m-wrapper query='.collapsible' method='collapsible' }}
+	<ul class="collapsible" data-collapsible="accordion"> 
+	  	{{#each model as |encuesta|}}
+			{{#if encuesta.respondida}}
+				<li>
+	    			<div class="collapsible-header">
+	      				<i class="material-icons">assignment_turned_in</i>
+	      				{{encuesta.encuestaBase.titulo}}
+		      				<span class="new badge blue" data-badge-caption="Ver">
+		      				{{#link-to "ver-encuesta" encuesta}}
+		      					.
+		      				{{/link-to}}
+		      				</span>
+	      				</div>
+	    			<div class="collapsible-body">
+	    				<p>Descripción: {{encuesta.encuestaBase.descripcion}}</p>
+	    				<p>Fecha de Respuesta: {{moment-format encuesta.fechaRespuesta 'DD/MMM/YYYY HH:mm' }}</p>
+	    			</div>
+	    		</li>
+	     	{{/if}}
+	    {{/each}}
+	  
+	</ul>
+{{/m-wrapper}}
