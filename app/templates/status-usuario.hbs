@@ -11,7 +11,11 @@
                 <i class="material-icons right">more_vert</i>
             </span>
             <p>
-                <a>Status: </a>
+                {{#if model.status.isFulfilled}}
+                    <a>
+                        Status: {{model.status.content}}
+                    </a>                             
+                {{/if}}
             </p>
             </div>
             <div class="card-reveal">
@@ -30,10 +34,10 @@
                         <p>Dirección: {{model.direccion}}</p>
                     </li>
                     <li>
-                        <p>Correo Electrónico: {{model.telefono}}</p>
+                        <p>Teléfono: {{model.telefono}}</p>
                     </li>
                     <li>
-                        <p>Saldo de este mes: {{model.telefono}}</p>
+                        <p>Saldo de este mes: {{format-money model.currentPagos symbol=selectedCurrency format="%v %s"}}</p>
                     </li>
                 </ul>
             </div>

@@ -22,23 +22,25 @@
     <ul class="collapsible" data-collapsible="accordion">
         {{#each model as |solicitud|}}
             {{#unless solicitud.isNew}}
-                <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">assignment_turned_in</i>
-                            {{solicitud.titulo}}
-                        <span class="new badge blue" data-badge-caption="Ver">
-                            {{#link-to "ver-solicitud" solicitud.id}}
-                            .
-                           {{/link-to}}
-                        </span>
-                    </div>
-                    <div class="collapsible-body">
-                            <p>Colono: {{solicitud.colono.nombre}} {{solicitud.colono.apellidoPaterno}} </p>
-                            <p>Motivo: {{solicitud.descripcion}}</p>
-                            <p>Fecha del evento: {{moment-format solicitud.fecha 'DD/MMM/YYYY' }} </p>
+                {{#if solicitud.aprobado}}
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">assignment_turned_in</i>
+                                {{solicitud.titulo}}
+                            <span class="new badge blue" data-badge-caption="Ver">
+                                {{#link-to "ver-solicitud" solicitud.id}}
+                                .
+                               {{/link-to}}
+                            </span>
+                        </div>
+                        <div class="collapsible-body">
+                                <p>Colono: {{solicitud.colono.nombre}} {{solicitud.colono.apellidoPaterno}} </p>
+                                <p>Motivo: {{solicitud.descripcion}}</p>
+                                <p>Fecha del evento: {{moment-format solicitud.fecha 'DD/MMM/YYYY' }} </p>
 
-                    </div>
-                </li>
+                        </div>
+                    </li>
+                {{/if}}
             {{/unless}}
         {{/each}}
     </ul>
