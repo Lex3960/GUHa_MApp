@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 
+// Compinente que ofrece integración de Ember Templates (.hbs) con jQuery
 export default Component.extend({
     tagName: 'span',
     query: 'a',

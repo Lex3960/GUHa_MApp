@@ -6,6 +6,7 @@ export default Ember.Route.extend({
     session: service(),
     currentUser: service(),
 
+    // Si la sesión no está iniciada, Transición a la pantalla de inicio
     beforeModel(){
      this.get('currentUser.account').then((account)=>{
        if(isBlank(account)){
@@ -17,6 +18,7 @@ export default Ember.Route.extend({
      })
      },
 
+     // El modelo de esta vista es el usuario
      model() {
        return this.get('currentUser.account').then((account)=>{
          //console.log(theUnit)

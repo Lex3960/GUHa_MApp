@@ -7,18 +7,22 @@ export default Controller.extend({
     firebase: service('firebaseApp'),
 
     actions: {
+      // Inicio de sesión
         iniciarSesion(){
+          // Validando Email
             let email = this.get('email');
             if (isBlank( this.get('email') ) ){
                 window.Materialize.toast('Introduce tu correo electrónico', 3000);
 				return;
 			}
+      // Validando Password
             let password = this.get('password');
             if (isBlank( this.get('password') ) ){
                 window.Materialize.toast('Introduce tu contraseña', 3000);
 				return;
 			}
 
+            // Abriendo sesión de Firebase
             this.get('session').open('firebase', {
                 provider: 'password',
                 email: email,
@@ -30,7 +34,7 @@ export default Controller.extend({
                 }).catch(()=>{
                     window.Materialize.toast('Bienvenido', 3000);
                     this.transitionToRoute('dashboard');
-                });  
+                });
             }).catch(()=> {
             // }).catch((error)=> {
                 //console.log(error);
@@ -38,5 +42,5 @@ export default Controller.extend({
             });
         }
     }
-  
+
 });

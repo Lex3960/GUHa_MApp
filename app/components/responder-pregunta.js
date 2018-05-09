@@ -5,7 +5,8 @@ import DS from 'ember-data';
 import moment from 'moment';
 
 export default Component.extend({
-	actions: { 
+	actions: {
+		// Acción que cambia la respuesta de una pregunta, de acuerdo con el numero de pregunta y el id de la respuesta
 		changeRespuesta(respuestaId){
 			let respuestaPregunta = {
 				idRespuesta: respuestaId,

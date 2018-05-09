@@ -6,6 +6,7 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
+// Lista de pantallas
 Router.map(function() {
   this.route('login');
   this.route('signup');
